@@ -22,12 +22,22 @@ Task Board è una single-page React/Vite: legge le attività da `GET /api/tasks`
 
 Prerequisiti: Docker Desktop e Git.
 
-Nota: nel workspace di consegna Docker Desktop deve essere installato e avviato; in questa sessione il comando `docker` non era disponibile, quindi il build delle immagini e `docker compose up` sono documentati ma non eseguiti localmente.
+Docker Desktop deve essere installato e avviato. Lo stesso smoke test è eseguito automaticamente dalla pipeline CI, così un'immagine non avviabile blocca il deploy.
 
 1. Copiare `.env.example` in `.env` (il file `.env` è ignorato da Git).
 2. Avviare tutto con `docker compose up --build`. Il frontend attende l'healthcheck del backend prima di essere avviato.
 3. Aprire `http://localhost:8080` e verificare `http://localhost:3001/api/health`.
 4. Fermare lo stack con `docker compose down`.
+
+Lo smoke test manuale equivalente, senza lasciare container in esecuzione, è:
+
+```bash
+cp .env.example .env
+docker compose up --build --detach
+docker compose exec --no-TTY backend wget --spider --quiet http://localhost:3001/api/health
+curl --fail http://localhost:8080
+docker compose down --volumes
+```
 
 Senza Docker, il backend si avvia con `cd backend && npm install && npm start`; il frontend con `cd frontend && npm install && npm run dev`.
 
