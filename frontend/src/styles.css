@@ -1,0 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Space+Mono&display=swap');
+:root { font-family: 'DM Sans', sans-serif; color: #f4f1ea; background: #111513; }
+* { box-sizing: border-box; } body { margin: 0; min-width: 320px; }
+.shell { min-height: 100vh; padding: 8rem 1.5rem; background: radial-gradient(circle at 15% 10%, #24443b, transparent 40%), #111513; }
+.hero, .card { max-width: 720px; margin: auto; } .eyebrow { color: #95d5b2; font: 12px 'Space Mono', monospace; letter-spacing: .2em; }
+h1 { font-size: clamp(3rem, 8vw, 6rem); line-height: .95; margin: 1rem 0; } p { color: #b8c7bf; font-size: 1.1rem; }
+.card { margin-top: 3rem; padding: 2rem; border: 1px solid #38564a; border-radius: 18px; background: #18221d; box-shadow: 0 20px 80px #0005; }
+.card-header { display: flex; justify-content: space-between; align-items: center; gap: 1rem; } h2 { margin-top: 0; } .status { color: #95d5b2; font-size: .85rem; }
+form { display: flex; gap: .75rem; } input { flex: 1; border: 1px solid #476556; border-radius: 8px; padding: .85rem 1rem; background: #101612; color: white; font: inherit; } button { border: 0; border-radius: 8px; padding: .85rem 1.2rem; background: #95d5b2; color: #132019; font-weight: 700; cursor: pointer; }
+ul { list-style: none; padding: 0; margin-bottom: 0; } li { padding: 1rem 0; border-bottom: 1px solid #2d4036; } .check { display: inline-grid; place-items: center; width: 22px; height: 22px; margin-right: .75rem; border-radius: 50%; background: #95d5b2; color: #132019; font-size: .8rem; }
