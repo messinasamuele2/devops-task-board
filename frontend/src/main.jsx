@@ -1,4 +1,5 @@
 /* eslint-disable no-unused-vars */
+import { StrictMode } from 'react'
 import ReactDOM from 'react-dom/client'
 import * as Sentry from '@sentry/react'
 import App from './App.jsx'
@@ -9,5 +10,9 @@ if (import.meta.env.VITE_SENTRY_DSN) {
 }
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode><App /></React.StrictMode>,
+  <StrictMode>
+    <Sentry.ErrorBoundary fallback={<p>Si è verificato un errore inatteso.</p>}>
+      <App />
+    </Sentry.ErrorBoundary>
+  </StrictMode>,
 )
