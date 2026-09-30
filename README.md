@@ -55,6 +55,15 @@ Il workflow si attiva su ogni push e pull request verso `main`. Esegue `npm ci` 
 
 Per attivare Pages: repository GitHub → `Settings → Pages` → Source `GitHub Actions`. Il link pubblico sarà `https://<utente>.github.io/<repository>/`; il link alla run è nella scheda Actions del repository. Questi URL non sono compilabili prima di collegare il workspace a un repository GitHub reale.
 
+## Deploy backend su Render
+
+Il file [`render.yaml`](./render.yaml) definisce il servizio Node.js e il suo healthcheck. Per pubblicarlo:
+
+1. Creare un account Render e scegliere **New → Blueprint**.
+2. Collegare `messinasamuele2/devops-task-board` e selezionare `main`.
+3. Confermare il servizio `devops-task-board-api`; Render esegue automaticamente build e deploy a ogni push.
+4. Verificare `https://<servizio>.onrender.com/api/health` e usare l'URL senza `/api` come valore di `VITE_API_URL`.
+
 ## Monitoraggio
 
 1. Creare un progetto Sentry gratuito per React e copiare il DSN in `VITE_SENTRY_DSN` (secret GitHub o `.env` locale). Sentry registra eccezioni frontend e mostra evento, stack trace, browser e release. `Sentry.ErrorBoundary` impedisce che un errore React lasci una schermata bianca senza evento.
