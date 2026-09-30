@@ -75,7 +75,7 @@ jobs:
         env:
           VITE_API_URL: ${{ vars.VITE_API_URL }}
           VITE_SENTRY_DSN: ${{ secrets.VITE_SENTRY_DSN }}
-          VITE_ENABLE_SENTRY_TEST: ${{ vars.VITE_ENABLE_SENTRY_TEST || 'false' }}
+          VITE_ENABLE_SENTRY_TEST: 'false'
         run: npm run build
       - name: Configure Pages
         uses: actions/configure-pages@v5
